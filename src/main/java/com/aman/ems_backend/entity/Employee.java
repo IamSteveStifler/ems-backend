@@ -1,7 +1,9 @@
 package com.aman.ems_backend.entity;
 
 import jakarta.persistence.*;
+import lombok.NoArgsConstructor;
 
+@NoArgsConstructor
 @Entity
 @Table(name = "employees")
 public class Employee {
@@ -15,6 +17,7 @@ public class Employee {
         this.lastName = lastName;
         this.email = email;
     }
+
 
     public Long getId() {
         return id;
