@@ -4,6 +4,10 @@ public class EmployeeDto {
     private Long id;
     private String firstName;
     private String lastName;
+    private String email;
+
+    public EmployeeDto() {
+    }
 
     public EmployeeDto(Long id, String firstName, String lastName, String email) {
         this.id = id;
@@ -43,6 +47,4 @@ public class EmployeeDto {
     public void setEmail(String email) {
         this.email = email;
     }
-
-    private String email;
 }

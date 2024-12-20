@@ -1,8 +1,7 @@
 package com.aman.ems_backend.controller;
 
 import com.aman.ems_backend.dto.EmployeeDto;
-import com.aman.ems_backend.exception.EmployeeNotFoundException;
-import com.aman.ems_backend.service.Impl.EmployeeServiceImpl;
+import com.aman.ems_backend.service.impl.EmployeeServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,24 +17,18 @@ public class EmployeeController {
     private EmployeeServiceImpl employeeService;
 
     @PostMapping("/save")
-    public ResponseEntity<EmployeeDto> saveEmployee(@RequestBody EmployeeDto employeeDto) {
+    public ResponseEntity<EmployeeDto> saveEmployee(@RequestBody EmployeeDto employeeDto){
         return new ResponseEntity<>(employeeService.saveEmployee(employeeDto), HttpStatus.CREATED);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<EmployeeDto> getEmployeeById(@PathVariable("id") Long id){
+    public ResponseEntity<EmployeeDto> getEmployeeById(@PathVariable Long id){
         return ResponseEntity.ok(employeeService.getEmployeeById(id));
     }
 
     @GetMapping("/all")
-    public ResponseEntity<List<EmployeeDto>> getAllEmployees() {
-        return ResponseEntity.ok(employeeService.getAllEmployees());
-    }
-
-    @PutMapping("/update/{id}")
-    public ResponseEntity<EmployeeDto> updateEmployee(@PathVariable("id") Long id,
-                                                      @RequestBody EmployeeDto updatedDetails) {
-        return new ResponseEntity<>(employeeService.updateEmployee(id, updatedDetails), HttpStatus.ACCEPTED);
+    public ResponseEntity<List<EmployeeDto>> getEmployeeById(){
+        return ResponseEntity.ok(employeeService.getAllEmployee());
     }
 
 }

@@ -14,13 +14,12 @@ public class EmployeeMapper {
         );
     }
 
-    public static Employee employeeDtoToEmployee(EmployeeDto employeeDto){
+    public static Employee employeeDtoToEmployee(EmployeeDto employee){
         return new Employee(
-                employeeDto.getId(),
-                employeeDto.getFirstName(),
-                employeeDto.getLastName(),
-                employeeDto.getEmail()
+                employee.getId(),
+                employee.getFirstName(),
+                employee.getLastName(),
+                employee.getEmail()
         );
     }
-
 }
